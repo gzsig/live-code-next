@@ -7,6 +7,7 @@ export const ZMedication = z.object({
   ean: z.string(),
   stock: z.number(),
   price: z.number(),
+  isSuspect: z.boolean()
 });
 
 export type Medication = z.infer<typeof ZMedication>;
