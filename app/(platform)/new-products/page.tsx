@@ -5,11 +5,8 @@ import { useFormState } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { saveProducts } from "./actions/save-products";
-import { Table, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { DataTable } from "@/components/implemented/data-table";
 
 export default function Page() {
-
   const [state, formAction] = useFormState(saveProducts, { products: [], invalidProducts: [] });
 
   console.log('state', state)
@@ -23,34 +20,6 @@ export default function Page() {
           Enviar
         </Button>
       </form>
-
-      <div className="mt-6">
-
-        <Table>
-          <TableHead>
-            <TableRow>
-              id
-            </TableRow>
-
-            <TableRow>
-              name
-            </TableRow>
-
-            <TableRow>
-              ean
-            </TableRow>
-
-            <TableRow>
-              stock
-            </TableRow>
-
-            <TableRow>
-              price
-            </TableRow>
-          </TableHead>
-        </Table>
-
-      </div>
     </div>
   )
 }

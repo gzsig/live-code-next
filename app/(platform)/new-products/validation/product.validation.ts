@@ -11,14 +11,13 @@ const productSchema = z.object({
 
 export type Product = z.infer<typeof productSchema>;
 
-export function validateEAN(product: Product): boolean {
+export function validateEANIsInvalid(product: Product): boolean {
   const isValid = productSchema.safeParse(product)
 
   return !isValid.success;
 }
 
-export function validateDuplicate(product: Product): boolean {
+export function validateIsDuplicate(product: Product): boolean {
   const procutsInDB = db.findAll();
   return procutsInDB.some(product => product.ean === product.ean)
 }
-
