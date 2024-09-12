@@ -5,7 +5,10 @@ export class InMemoryDb<T> {
 
   // Create a new record
   create(record: T): Record<T> {
-    const newRecord = { ...record, id: this.generateId() };
+    const newRecord: any = { ...record, id: this.generateId() };
+    const exists = this.data.find((d: any) => d.name == newRecord.name || d.ean == newRecord.ean)
+    if (exists) throw Error("Medicamento duplicado")
+
     this.data.push(newRecord);
     return newRecord;
   }
