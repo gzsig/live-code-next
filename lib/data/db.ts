@@ -3,8 +3,8 @@ import { z } from "zod";
 
 export const ZMedication = z.object({
   id: z.string().optional(),
-  name: z.string().min(7).max(11),
-  ean: z.string(),
+  name: z.string(),
+  ean: z.string().min(7).max(11),
   stock: z.number(),
   price: z.number(),
 });
