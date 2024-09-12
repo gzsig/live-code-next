@@ -40,7 +40,7 @@ export async function GET(req: NextRequest) {
     // Function to generate or retrieve an EAN for a medication
     const getOrCreateEANForMedication = (medication: string): number => {
       if (!medicationEANs[medication]) {
-        medicationEANs[medication] = generateRandomNumber(13);
+        medicationEANs[medication] = generateRandomNumber(10);
       }
       return medicationEANs[medication];
     };
